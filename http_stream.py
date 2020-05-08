@@ -5,7 +5,7 @@ import cv2
 url = 'http://192.168.2.4:8000/video_feed'
 
 vcap = cv2.VideoCapture(url)
-vcap.set(cv2.CAP_PROP_BUFFERSIZE,1) 
+vcap.set(cv2.CAP_PROP_BUFFERSIZE,5) 
 FPS = 1/30
 FPS_MS = int(FPS * 1000)
 
@@ -21,7 +21,7 @@ while True:
         # show the output frame
         cv2.imshow("Frame", frame)
     
-    key = cv2.waitKey(FPS_MS) & 0xFF
+    key = cv2.waitKey(1) & 0xFF
     # if the `q` key was pressed, break from the loop
     if key == ord("q"):
         break
